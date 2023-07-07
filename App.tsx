@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, View, StatusBar } from "react-native";
+import PreviewFlex from "./components/flexbox/PreviewFlex";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaLayout>
+      <PreviewFlex />
+    </SafeAreaLayout>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export function SafeAreaLayout({ children }: any) {
+  return (
+    <SafeAreaView>
+      <StatusBar />
+      <View>{children}</View>
+    </SafeAreaView>
+  );
+}
